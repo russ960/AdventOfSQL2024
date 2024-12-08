@@ -1,7 +1,7 @@
 -- Borrowed method from here: https://learnsql.com/blog/sql-recursive-cte/
 
 WITH RECURSIVE staff_hierarchy AS (
-  SELECT staff_id, staff_name, manager_id, 0 AS hierarchy_level
+  SELECT staff_id, staff_name, manager_id, 1 AS hierarchy_level
   FROM staff
   WHERE manager_id IS NULL
  
@@ -16,7 +16,7 @@ SELECT   sh.staff_id AS employee_first_name,
        sh.staff_name AS employee_last_name,
        s.staff_id AS boss_first_name,
        s.staff_name AS boss_last_name,
-       hierarchy_level+ 1
+       hierarchy_level
 FROM staff_hierarchy sh
 LEFT JOIN staff s
 ON sh.manager_id = s.staff_id
