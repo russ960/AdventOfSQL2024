@@ -1,10 +1,10 @@
-DROP TABLE gifts CASCADE;
+--DROP TABLE gifts CASCADE;
 CREATE TABLE gifts (
     gift_id SERIAL PRIMARY KEY,
     gift_name VARCHAR(100) NOT NULL,
     price DECIMAL(10,2)
 );
-DROP TABLE gift_requests CASCADE;
+--DROP TABLE gift_requests CASCADE;
 CREATE TABLE gift_requests (
     request_id SERIAL PRIMARY KEY,
     gift_id INT,
